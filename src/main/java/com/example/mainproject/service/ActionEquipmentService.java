@@ -72,4 +72,12 @@ public class ActionEquipmentService {
         actionEquipmentRepo.save(entity);
         return id;
     }
+
+    public Integer updateEquipState(Integer id, Integer idEquipState) {
+        ActionEquipmentEntity entity = actionEquipmentRepo.findById(id).get();
+        EquipmentStateEntity equipmentState = equipmentStateRepo.findById(idEquipState).get();
+        entity.setEquip_state_id(equipmentState);
+        actionEquipmentRepo.save(entity);
+        return id;
+    }
 }

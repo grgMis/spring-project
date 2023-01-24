@@ -52,17 +52,28 @@ public class ActionEquipmentController {
         try {
             return ResponseEntity.ok(actionEquipmentService.deleteOne(action_equip_id));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Произошлка ошибка");
+            return ResponseEntity.badRequest().body("Произошла ошибка");
         }
     }
 
     @PutMapping("/{action_equip_id}")
     public ResponseEntity updateActionEquip(@PathVariable Integer action_equip_id,
-                                           @RequestBody ActionEquipmentEntity actionEquipmentEntity) {
+                                            @RequestBody ActionEquipmentEntity actionEquipmentEntity) {
         try {
             return ResponseEntity.ok(actionEquipmentService.updateData(action_equip_id, actionEquipmentEntity));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Произошлка ошибка");
+            return ResponseEntity.badRequest().body("Произошла ошибка");
         }
     }
+
+    @PutMapping("/updateActionEquip")
+    public ResponseEntity updateEquipState(@RequestParam Integer action_equip_id,
+                                            @RequestParam Integer equip_state_id) {
+        try {
+            return ResponseEntity.ok(actionEquipmentService.updateEquipState(action_equip_id, equip_state_id));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Произошла ошибка");
+        }
+    }
+
 }
