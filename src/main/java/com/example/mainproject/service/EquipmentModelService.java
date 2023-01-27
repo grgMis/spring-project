@@ -25,10 +25,10 @@ public class EquipmentModelService {
         return (List<EquipmentModelEntity>) equipmentModelRepo.findAll();
     }
 
-    public EquipmentModel createData(EquipmentModelEntity equipmentModel, Integer id){
+    public EquipmentModelEntity createData(EquipmentModelEntity equipmentModel, Integer id){
         EquipmentClassEntity equipmentClass = equipmentClassRepo.findById(id).get();
         equipmentModel.setEquip_class_id(equipmentClass);
-        return EquipmentModel.toModel(equipmentModelRepo.save(equipmentModel));
+        return equipmentModelRepo.save(equipmentModel);
     }
 
     public EquipmentModel getOne(Integer id) {

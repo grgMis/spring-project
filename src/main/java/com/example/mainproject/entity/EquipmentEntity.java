@@ -16,6 +16,10 @@ public class EquipmentEntity {
     @JoinColumn(name = "equip_model_id", nullable = false)
     private EquipmentModelEntity equip_model_id;
 
+    @ManyToOne
+    @JoinColumn(name = "equip_state_id", nullable = false)
+    private EquipmentStateEntity equip_state_id;
+
     @Column(nullable = true, length = 20)
     private String factory_number;
 
@@ -24,17 +28,24 @@ public class EquipmentEntity {
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_id")
-    private List<ActionEquipmentEntity> actionEquipmentEntityList;
+    private List<WellEquipEntity> wellEquipEntityList;
 
     public EquipmentEntity() {
     }
-
-    public List<ActionEquipmentEntity> getActionEquipmentEntityList() {
-        return actionEquipmentEntityList;
+    public EquipmentStateEntity getEquip_state_id() {
+        return equip_state_id;
     }
 
-    public void setActionEquipmentEntityList(List<ActionEquipmentEntity> actionEquipmentEntityList) {
-        this.actionEquipmentEntityList = actionEquipmentEntityList;
+    public void setEquip_state_id(EquipmentStateEntity equip_state_id) {
+        this.equip_state_id = equip_state_id;
+    }
+
+    public void setWellEquipEntityList(List<WellEquipEntity> wellEquipEntityList) {
+        this.wellEquipEntityList = wellEquipEntityList;
+    }
+
+    public List<WellEquipEntity> getWellEquipEntityList() {
+        return wellEquipEntityList;
     }
 
     public Integer getEquip_id() {

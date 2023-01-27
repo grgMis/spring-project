@@ -19,8 +19,8 @@ public class DeptTypeService {
         return (List<DeptTypeEntity>) deptTypeRepo.findAll();
     }
     
-    public DeptType addData(DeptTypeEntity deptType) {
-        return DeptType.toModel(deptTypeRepo.save(deptType));
+    public DeptTypeEntity addData(DeptTypeEntity deptType) {
+        return deptTypeRepo.save(deptType);
     }
 
     public DeptType getOne(Integer id) throws DeptTypeNotFoundException {

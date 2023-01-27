@@ -19,8 +19,8 @@ public class EquipmentStateService {
         return (List<EquipmentStateEntity>) equipmentStateRepo.findAll();
     }
 
-    public EquipmentState addData(EquipmentStateEntity equipmentState) {
-        return EquipmentState.toModel(equipmentStateRepo.save(equipmentState));
+    public EquipmentStateEntity addData(EquipmentStateEntity equipmentState) {
+        return equipmentStateRepo.save(equipmentState);
     }
 
     public EquipmentState getOne(Integer id){

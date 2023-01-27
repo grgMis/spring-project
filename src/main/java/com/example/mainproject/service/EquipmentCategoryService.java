@@ -19,8 +19,8 @@ public class EquipmentCategoryService {
         return (List<EquipmentCategoryEntity>) equipmentCategoryRepo.findAll();
     }
 
-    public EquipmentCategory createData(EquipmentCategoryEntity equipmentCategory) {
-        return EquipmentCategory.toModel(equipmentCategoryRepo.save(equipmentCategory));
+    public EquipmentCategoryEntity createData(EquipmentCategoryEntity equipmentCategory) {
+        return equipmentCategoryRepo.save(equipmentCategory);
     }
 
     public EquipmentCategory getOne(Integer id) {

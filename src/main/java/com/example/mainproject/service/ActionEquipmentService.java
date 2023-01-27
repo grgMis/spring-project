@@ -16,40 +16,21 @@ public class ActionEquipmentService {
 
     @Autowired
     private ActionOperationRepo actionOperationRepo;
-
     @Autowired
-    private EquipmentClassRepo equipmentClassRepo;
-
-    @Autowired
-    private EquipmentModelRepo equipmentModelRepo;
-
-    @Autowired
-    private EquipmentRepo equipmentRepo;
-
-    @Autowired
-    private EquipmentStateRepo equipmentStateRepo;
+    private WellEquipRepo wellEquipRepo;
 
     public List<ActionEquipmentEntity> getAll() {
         return (List<ActionEquipmentEntity>) actionEquipmentRepo.findAll();
     }
 
-    public ActionEquipment createData(ActionEquipmentEntity actionEquipmentEntity,
+    public ActionEquipmentEntity addData(ActionEquipmentEntity actionEquipmentEntity,
                                       Integer idActionOper,
-                                      Integer idEquipClass,
-                                      Integer idEquipModel,
-                                      Integer idEquip,
-                                      Integer idEquipState ){
+                                      Integer idWellEquip){
         ActionOperationEntity actionOperationEntity = actionOperationRepo.findById(idActionOper).get();
-        EquipmentClassEntity equipmentClass = equipmentClassRepo.findById(idEquipClass).get();
-        EquipmentModelEntity equipmentModelEntity = equipmentModelRepo.findById(idEquipModel).get();
-        EquipmentEntity equipmentEntity = equipmentRepo.findById(idEquip).get();
-        EquipmentStateEntity equipmentState = equipmentStateRepo.findById(idEquipState).get();
+        WellEquipEntity wellEquipEntity = wellEquipRepo.findById(idWellEquip).get();
         actionEquipmentEntity.setAction_oper_id(actionOperationEntity);
-        actionEquipmentEntity.setEquip_class_id(equipmentClass);
-        actionEquipmentEntity.setEquip_model_id(equipmentModelEntity);
-        actionEquipmentEntity.setEquip_id(equipmentEntity);
-        actionEquipmentEntity.setEquip_state_id(equipmentState);
-        return ActionEquipment.toModel(actionEquipmentRepo.save(actionEquipmentEntity));
+        actionEquipmentEntity.setWell_equip_id(wellEquipEntity);
+        return actionEquipmentRepo.save(actionEquipmentEntity);
     }
 
     public ActionEquipment getOne(Integer id) {
@@ -73,10 +54,8 @@ public class ActionEquipmentService {
         return id;
     }
 
-    public Integer updateEquipState(Integer id, Integer idEquipState) {
+    public Integer updateEquipState(Integer id) {
         ActionEquipmentEntity entity = actionEquipmentRepo.findById(id).get();
-        EquipmentStateEntity equipmentState = equipmentStateRepo.findById(idEquipState).get();
-        entity.setEquip_state_id(equipmentState);
         actionEquipmentRepo.save(entity);
         return id;
     }

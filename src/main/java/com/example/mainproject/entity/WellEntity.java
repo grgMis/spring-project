@@ -21,18 +21,16 @@ public class WellEntity {
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "well_id")
-    private List<ActionEntity> actionEntityList;
+    private List<WellEquipEntity> wellEquipEntityList;
 
     public WellEntity() {
+
     }
 
-    public List<ActionEntity> getActionEntityList() {
-        return actionEntityList;
+    public List<WellEquipEntity> getWellEquipEntityList() {
+        return wellEquipEntityList;
     }
 
-    public void setActionEntityList(List<ActionEntity> actionEntityList) {
-        this.actionEntityList = actionEntityList;
-    }
 
     public Integer getWell_id() {
         return well_id;

@@ -19,8 +19,8 @@ public class HangerTypeService {
         return (List<HangerTypeEntity>) hangerTypeRepo.findAll();
     }
 
-    public HangerType addData(HangerTypeEntity hangerType) {
-        return HangerType.toModel(hangerTypeRepo.save(hangerType));
+    public HangerTypeEntity addData(HangerTypeEntity hangerType) {
+        return hangerTypeRepo.save(hangerType);
     }
 
     public HangerType getOne(Integer id) {

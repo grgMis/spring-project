@@ -19,8 +19,8 @@ public class ActionGroupService {
         return (List<ActionGroupEntity>) actionGroupRepo.findAll();
     }
 
-    public ActionGroup createData(ActionGroupEntity actionGroup) {
-        return ActionGroup.toModel(actionGroupRepo.save(actionGroup));
+    public ActionGroupEntity createData(ActionGroupEntity actionGroup) {
+        return actionGroupRepo.save(actionGroup);
     }
 
     public ActionGroup getOne(Integer id) {

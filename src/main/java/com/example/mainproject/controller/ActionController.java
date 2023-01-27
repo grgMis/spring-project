@@ -23,10 +23,9 @@ public class ActionController {
 
     @PostMapping
     public ResponseEntity createAction(@RequestBody ActionEntity actionEntity,
-                                       @RequestParam Integer well_id,
                                        @RequestParam Integer action_type_id) {
         try {
-            return ResponseEntity.ok(actionService.createData(actionEntity, well_id, action_type_id));
+            return ResponseEntity.ok(actionService.createData(actionEntity, action_type_id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Произошлка ошибка");
         }

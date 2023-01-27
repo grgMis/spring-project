@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 
 public class Action {
     private Integer action_id;
-    private WellEntity well_id;
     private Date action_date_begin;
     private Date action_date_end;
 
@@ -20,7 +19,6 @@ public class Action {
     public static Action toModel(ActionEntity entity){
         Action model = new Action();
         model.setAction_id(entity.getAction_id());
-        model.setWell_id(entity.getWell_id());
         model.setAction_date_begin(entity.getAction_date_begin());
         model.setAction_date_end(entity.getAction_date_end());
         model.setAction_oper_list(entity.getActionOperationEntityList().stream().map(ActionOperation::toModel).collect(Collectors.toList()));
@@ -46,13 +44,6 @@ public class Action {
         this.action_id = action_id;
     }
 
-    public WellEntity getWell_id() {
-        return well_id;
-    }
-
-    public void setWell_id(WellEntity well_id) {
-        this.well_id = well_id;
-    }
 
     public Date getAction_date_begin() {
         return action_date_begin;

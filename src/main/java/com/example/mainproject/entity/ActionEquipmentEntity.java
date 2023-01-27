@@ -21,23 +21,11 @@ public class ActionEquipmentEntity {
     private Date equip_date_entry;
 
     @ManyToOne
-    @JoinColumn(name = "equip_class_id", nullable = false)
-    private EquipmentClassEntity equip_class_id;
-
-    @ManyToOne
-    @JoinColumn(name = "equip_model_id", nullable = true)
-    private EquipmentModelEntity equip_model_id;
-
-    @ManyToOne
-    @JoinColumn(name = "equip_id", nullable = true)
-    private EquipmentEntity equip_id;
+    @JoinColumn(name = "well_equip_id", nullable = true)
+    private WellEquipEntity well_equip_id;
 
     @Column(nullable = false)
     private Integer equip_no;
-
-    @ManyToOne
-    @JoinColumn(name = "equip_state_id", nullable = true)
-    private EquipmentStateEntity equip_state_id;
 
     @Column(nullable = true)
     private float equip_depth_begin;
@@ -49,6 +37,14 @@ public class ActionEquipmentEntity {
     private Integer equip_count;
 
     public ActionEquipmentEntity() {
+    }
+
+    public WellEquipEntity getWell_equip_id() {
+        return well_equip_id;
+    }
+
+    public void setWell_equip_id(WellEquipEntity well_equip_id) {
+        this.well_equip_id = well_equip_id;
     }
 
     public Integer getAction_equip_id() {
@@ -75,44 +71,12 @@ public class ActionEquipmentEntity {
         this.equip_date_entry = equip_date_entry;
     }
 
-    public EquipmentClassEntity getEquip_class_id() {
-        return equip_class_id;
-    }
-
-    public void setEquip_class_id(EquipmentClassEntity equip_class_id) {
-        this.equip_class_id = equip_class_id;
-    }
-
-    public EquipmentModelEntity getEquip_model_id() {
-        return equip_model_id;
-    }
-
-    public void setEquip_model_id(EquipmentModelEntity equip_model_id) {
-        this.equip_model_id = equip_model_id;
-    }
-
-    public EquipmentEntity getEquip_id() {
-        return equip_id;
-    }
-
-    public void setEquip_id(EquipmentEntity equip_id) {
-        this.equip_id = equip_id;
-    }
-
     public Integer getEquip_no() {
         return equip_no;
     }
 
     public void setEquip_no(Integer equip_no) {
         this.equip_no = equip_no;
-    }
-
-    public EquipmentStateEntity getEquip_state_id() {
-        return equip_state_id;
-    }
-
-    public void setEquip_state_id(EquipmentStateEntity equip_state_id) {
-        this.equip_state_id = equip_state_id;
     }
 
     public float getEquip_depth_begin() {

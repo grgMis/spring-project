@@ -26,10 +26,6 @@ public class EquipmentModelEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_model_id")
     private List<EquipmentEntity> equipmentEntityList;
 
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_model_id")
-    private List<ActionEquipmentEntity> actionEquipmentEntityList;
-
     public EquipmentModelEntity() {
     }
 
@@ -39,14 +35,6 @@ public class EquipmentModelEntity {
 
     public void setEquipmentEntityList(List<EquipmentEntity> equipmentEntityList) {
         this.equipmentEntityList = equipmentEntityList;
-    }
-
-    public List<ActionEquipmentEntity> getActionEquipmentEntityList() {
-        return actionEquipmentEntityList;
-    }
-
-    public void setActionEquipmentEntityList(List<ActionEquipmentEntity> actionEquipmentEntityList) {
-        this.actionEquipmentEntityList = actionEquipmentEntityList;
     }
 
     public Integer getEquip_model_id() {

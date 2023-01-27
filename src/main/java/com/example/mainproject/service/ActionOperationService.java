@@ -31,7 +31,7 @@ public class ActionOperationService {
         return (List<ActionOperationEntity>) actionOperationRepo.findAll();
     }
 
-    public ActionOperation createData(ActionOperationEntity actionOperationEntity,
+    public ActionOperationEntity createData(ActionOperationEntity actionOperationEntity,
                                             Integer idAction,
                                             Integer idActionOperType,
                                             Integer idHangerType ){
@@ -41,7 +41,7 @@ public class ActionOperationService {
         actionOperationEntity.setAction_id(actionEntity);
         actionOperationEntity.setAction_oper_type_id(actionOperationTypeEntity);
         actionOperationEntity.setHanger_type_id(hangerTypeEntity);
-        return ActionOperation.toModel(actionOperationRepo.save(actionOperationEntity));
+        return actionOperationRepo.save(actionOperationEntity);
     }
 
     public ActionOperation getOne(Integer id) {

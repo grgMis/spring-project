@@ -25,9 +25,10 @@ public class EquipmentController {
 
     @PostMapping
     public ResponseEntity createEquip(@RequestBody EquipmentEntity equipmentEntity,
-                                      @RequestParam Integer equip_model_id){
+                                      @RequestParam Integer equip_model_id,
+                                      @RequestParam Integer equip_state_id){
         try {
-            return ResponseEntity.ok(equipmentService.createData(equipmentEntity, equip_model_id));
+            return ResponseEntity.ok(equipmentService.createData(equipmentEntity, equip_model_id, equip_state_id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Произошлка ошибка");
         }
@@ -52,10 +53,11 @@ public class EquipmentController {
     }
 
     @PutMapping
-    public ResponseEntity updateEquip(@RequestParam Integer equip_id,
-                                      @RequestBody EquipmentEntity equipmentEntity) {
+    public ResponseEntity updateEquip(@RequestBody EquipmentEntity equipmentEntity,
+                                      @RequestParam Integer equip_id,
+                                      @RequestParam Integer equip_state_id) {
         try {
-            return ResponseEntity.ok(equipmentService.updateData(equip_id, equipmentEntity));
+            return ResponseEntity.ok(equipmentService.updateData(equipmentEntity, equip_id, equip_state_id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Произошлка ошибка");
         }

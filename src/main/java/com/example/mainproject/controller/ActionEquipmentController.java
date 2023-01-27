@@ -24,15 +24,12 @@ public class ActionEquipmentController {
     }
 
     @PostMapping
-    public ResponseEntity createActionEquip(@RequestBody ActionEquipmentEntity actionEquipmentEntity,
-                                           @RequestParam Integer action_oper_id,
-                                           @RequestParam Integer equip_class_id,
-                                           @RequestParam Integer equip_model_id,
-                                           @RequestParam Integer equip_id,
-                                           @RequestParam Integer equip_state_id){
+    public ResponseEntity addActionEquip(@RequestBody ActionEquipmentEntity actionEquipmentEntity,
+                                            @RequestParam Integer action_oper_id,
+                                            @RequestParam Integer well_equip_id){
         try {
-            return ResponseEntity.ok(actionEquipmentService.createData(actionEquipmentEntity,
-                    action_oper_id, equip_class_id, equip_model_id, equip_id, equip_state_id));
+            return ResponseEntity.ok(actionEquipmentService.addData(actionEquipmentEntity,
+                    action_oper_id, well_equip_id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Произошлка ошибка");
         }
@@ -67,10 +64,9 @@ public class ActionEquipmentController {
     }
 
     @PutMapping("/updateActionEquip")
-    public ResponseEntity updateEquipState(@RequestParam Integer action_equip_id,
-                                            @RequestParam Integer equip_state_id) {
+    public ResponseEntity updateEquipState(@RequestParam Integer action_equip_id) {
         try {
-            return ResponseEntity.ok(actionEquipmentService.updateEquipState(action_equip_id, equip_state_id));
+            return ResponseEntity.ok(actionEquipmentService.updateEquipState(action_equip_id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Произошла ошибка");
         }

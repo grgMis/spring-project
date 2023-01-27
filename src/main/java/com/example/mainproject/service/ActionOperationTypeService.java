@@ -19,8 +19,8 @@ public class ActionOperationTypeService {
         return (List<ActionOperationTypeEntity>) actionOperationTypeRepo.findAll();
     }
 
-    public ActionOperationType addData(ActionOperationTypeEntity actionOperationType) {
-        return ActionOperationType.toModel(actionOperationTypeRepo.save(actionOperationType));
+    public ActionOperationTypeEntity addData(ActionOperationTypeEntity actionOperationType) {
+        return actionOperationTypeRepo.save(actionOperationType);
     }
 
     public ActionOperationType getOne(Integer id){

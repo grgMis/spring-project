@@ -10,13 +10,11 @@ public class Well {
 
     private Integer well_id;
     private String well_name;
-    private List<Action> action_list;
 
     public static Well toModel(WellEntity entity){
         Well model = new Well();
         model.setWell_id(entity.getWell_id());
         model.setWell_name(entity.getWell_name());
-        model.setAction_list(entity.getActionEntityList().stream().map(Action::toModel).collect(Collectors.toList()));
         return model;
     }
 
@@ -39,11 +37,4 @@ public class Well {
         this.well_name = well_name;
     }
 
-    public List<Action> getAction_list() {
-        return action_list;
-    }
-
-    public void setAction_list(List<Action> action_list) {
-        this.action_list = action_list;
-    }
 }

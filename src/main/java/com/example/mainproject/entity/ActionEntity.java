@@ -18,10 +18,6 @@ public class ActionEntity {
     @JoinColumn(name = "action_type_id", nullable = false)
     private ActionTypeEntity action_type_id;
 
-    @ManyToOne
-    @JoinColumn(name = "well_id", nullable = false)
-    private WellEntity well_id;
-
     @Column(nullable = false)
     @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private Date action_date_begin;
@@ -59,14 +55,6 @@ public class ActionEntity {
 
     public void setAction_type_id(ActionTypeEntity action_type_id) {
         this.action_type_id = action_type_id;
-    }
-
-    public WellEntity getWell_id() {
-        return well_id;
-    }
-
-    public void setWell_id(WellEntity well_id) {
-        this.well_id = well_id;
     }
 
     public Date getAction_date_begin() {

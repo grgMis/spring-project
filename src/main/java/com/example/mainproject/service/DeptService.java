@@ -25,10 +25,10 @@ public class DeptService {
         return (List<DeptEntity>) deptRepo.findAll();
     }
 
-    public Dept createData(DeptEntity deptEntity, Integer id){
+    public DeptEntity createData(DeptEntity deptEntity, Integer id){
         DeptTypeEntity deptTypeEntity = deptTypeRepo.findById(id).get();
         deptEntity.setDept_type_id(deptTypeEntity);
-        return Dept.toModel(deptRepo.save(deptEntity));
+        return deptRepo.save(deptEntity);
     }
 
     public Dept getOne(Integer id) {

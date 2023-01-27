@@ -19,17 +19,17 @@ public class EquipmentStateEntity {
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_state_id")
-    private List<ActionEquipmentEntity> actionEquipmentEntityList;
+    private List<EquipmentEntity> equipmentEntityList;
 
     public EquipmentStateEntity() {
     }
 
-    public List<ActionEquipmentEntity> getActionEquipmentEntityList() {
-        return actionEquipmentEntityList;
+    public List<EquipmentEntity> getEquipmentEntityList() {
+        return equipmentEntityList;
     }
 
-    public void setActionEquipmentEntityList(List<ActionEquipmentEntity> actionEquipmentEntityList) {
-        this.actionEquipmentEntityList = actionEquipmentEntityList;
+    public void setEquipmentEntityList(List<EquipmentEntity> equipmentEntityList) {
+        this.equipmentEntityList = equipmentEntityList;
     }
 
     public Integer getEquip_state_id() {

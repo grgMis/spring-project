@@ -12,7 +12,6 @@ public class EquipmentClass {
     private String equip_class_name;
     private String equip_class_sname;
     private List<EquipmentModel> equip_model_list;
-    private List<ActionEquipment> action_equip_list;
 
     public static EquipmentClass toModel(EquipmentClassEntity entity){
         EquipmentClass model = new EquipmentClass();
@@ -20,7 +19,6 @@ public class EquipmentClass {
         model.setEquip_class_name(entity.getEquip_class_name());
         model.setEquip_class_sname(entity.getEquip_class_sname());
         model.setEquip_model_list(entity.getEquipmentModelEntityList().stream().map(EquipmentModel::toModel).collect(Collectors.toList()));
-        model.setAction_equip_list(entity.getActionEquipmentEntityList().stream().map(ActionEquipment::toModel).collect(Collectors.toList()));
         return model;
     }
 
@@ -59,11 +57,4 @@ public class EquipmentClass {
         this.equip_model_list = equip_model_list;
     }
 
-    public List<ActionEquipment> getAction_equip_list() {
-        return action_equip_list;
-    }
-
-    public void setAction_equip_list(List<ActionEquipment> action_equip_list) {
-        this.action_equip_list = action_equip_list;
-    }
 }
