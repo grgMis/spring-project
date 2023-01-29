@@ -28,9 +28,11 @@ public class EquipmentController {
                                       @RequestParam Integer equip_model_id,
                                       @RequestParam Integer equip_state_id){
         try {
-            return ResponseEntity.ok(equipmentService.createData(equipmentEntity, equip_model_id, equip_state_id));
+            return ResponseEntity.ok(equipmentService.createData(equipmentEntity,
+                                                                 equip_model_id,
+                                                                 equip_state_id));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Произошлка ошибка");
+            return ResponseEntity.badRequest().body("Произошла ошибка");
         }
     }
 
@@ -57,9 +59,20 @@ public class EquipmentController {
                                       @RequestParam Integer equip_id,
                                       @RequestParam Integer equip_state_id) {
         try {
-            return ResponseEntity.ok(equipmentService.updateData(equipmentEntity, equip_id, equip_state_id));
+            return ResponseEntity.ok(equipmentService.updateData(equipmentEntity,
+                                                                 equip_id,
+                                                                 equip_state_id));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Произошлка ошибка");
+            return ResponseEntity.badRequest().body("Произошла ошибка");
+        }
+    }
+
+    @PutMapping("/updateEquip")
+    public ResponseEntity updateEquipState(@RequestParam Integer equip_id, @RequestParam Integer equip_state_id) {
+        try {
+            return ResponseEntity.ok(equipmentService.updateEquipState(equip_id, equip_state_id));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Произошла ошибка");
         }
     }
 

@@ -53,4 +53,12 @@ public class EquipmentService {
         equipmentRepo.save(entity);
         return id;
     }
+
+    public Integer updateEquipState(Integer id, Integer idEquipState) {
+        EquipmentEntity entity = equipmentRepo.findById(id).get();
+        EquipmentStateEntity equipmentState = equipmentStateRepo.findById(idEquipState).get();
+        entity.setEquip_state_id(equipmentState);
+        equipmentRepo.save(entity);
+        return id;
+    }
 }
